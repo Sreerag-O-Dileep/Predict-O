@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template
+#importing methods from gnb files
 from GNBsem1 import gnbsem1
 from GNBsem2 import gnbsem2
 from GNBsub1 import gnbsub1
@@ -16,7 +17,7 @@ from GNBsub12 import gnbsub12
 
 app = Flask(__name__)
 
-
+#home page
 @app.route('/')
 def form():
     return render_template('index.html')
@@ -24,26 +25,26 @@ def form():
 
 @app.route('/x')
 def my_form_sem():
-    return render_template('semop.html')
+    return render_template('semop.html')#choosing semester
 
 
 @app.route('/x/a')
 def my_form_a():
-    return render_template('inputse1.html')
+    return render_template('inputse1.html')#semester1 input form
 
 
 @app.route('/x/b')
 def my_form_b():
-    return render_template('inputse2.html')
+    return render_template('inputse2.html')#semester2 input form
 
 
 @app.route('/y')
 def my_form_sub():
-    return render_template('inputsub.html')
+    return render_template('inputsub.html')#subject-wise input form
 
 
 @app.route('/x/getsem1', methods=['POST'])
-def my_sem1_result_post():
+def my_sem1_result_post():#reading semester1 form inputs
     text1 = int(request.form['user_Gender'])
     text2 = int(request.form['user_Income'])
     text3 = int(request.form['HS_percent'])
@@ -65,7 +66,7 @@ def my_sem1_result_post():
     text19 = int(request.form['user_s1c6i'])
     text20 = int(request.form['user_s1c6a'])
 
-
+    #creating dataframe
     x = [[text1, text2, text3, text4, text5, text6, text7, text8, text9, text10,
           text11, text12, text13, text14, text15, text16, text17, text18, text19, text20]]
     a = gnbsem1(x)
@@ -73,7 +74,7 @@ def my_sem1_result_post():
 
 
 @app.route('/x/getsem2', methods=['POST'])
-def my_sem2_result_post():
+def my_sem2_result_post():#reading semester2 form inputs
     text1 = int(request.form['user_Gender'])
     text2 = int(request.form['user_Income'])
     text3 = int(request.form['HS_percent'])
@@ -102,7 +103,7 @@ def my_sem2_result_post():
 
 
 @app.route('/getsub', methods=['POST'])
-def my_sub1_result_post():
+def my_sub1_result_post():#reading subject-wise form inputs
     text1 = int(request.form['user_Gender'])
     text2 = int(request.form['user_Income'])
     text3 = int(request.form['HS_percent'])
