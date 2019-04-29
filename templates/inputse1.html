@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+
+<head>
+   <title>Predict-O</title>
+   <link rel="icon" href="icon.ico" />
+</head>
+<style>
+   body {
+      background-image: url("https://images.unsplash.com/photo-1483444308400-fb9510501d23?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1506&q=80");
+      background-size: cover;
+      background-attachment: fixed;
+
+   }
+
+   .center {
+
+      padding-left: 500px;
+   }
+
+
+   input[type=submit] {
+      width: 685px;
+      background-color: rgb(66, 152, 163);
+      color: white;
+      padding: 14px 0px;
+      margin: 20px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+   }
+
+   input[type=submit]:hover {
+      background-color: #00bfff;
+   }
+
+   input[type=text],
+   [type=number] {
+      width: 100%;
+      opacity: 0.75;
+      padding: 12px 20px;
+      align-content: center;
+      margin: 2px 0;
+      width: 685px;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-sizing: border-box;
+   }
+
+   select {
+      width: 100%;
+      padding: 12px 20px;
+      width: 685px;
+      margin: 2px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-sizing: border-box;
+      opacity: 0.75;
+   }
+
+   .sub {
+      width: 200px;
+      font-size: 10px;
+   }
+
+   .subl {
+      font-size: 13px;
+   }
+
+   .s {
+      margin: 20px 280px;
+      font-size: 20px;
+   }
+
+   select:hover {
+      background-color: rgb(230, 229, 243);
+   }
+
+   input:hover {
+      background-color: rgb(230, 229, 243);
+   }
+</style>
+
+<body>
+
+   <div>
+      <form action="getsem1" method="POST" class="center"><b>
+            <label for="name">Sex:</label><br>
+            <select name="user_Gender">
+               <option disabled selected value> -- select an option -- </option>
+               <option value="0">Male</option>
+               <option value="1">Female</option>
+            </select><br>
+            <label for="name">Family Income:</label><br>
+            <input type="number" id="name" name="user_Income" placeholder="Enter Your Annual Income..."><br>
+            <label for="name">Higher Secondary Percentage:</label><br>
+            <input type="number" min="0" max="100" id="name" name="HS_percent"
+               placeholder="Percentage between 0 & 100..."><br>
+            <label for="name"> Higher Secondary Stream :</label><br>
+            <select name="HS_Stream">
+               <option disabled selected value> -- select an option -- </option>
+               <option value="0">State</option>
+               <option value="1">CBSE</option>
+               <option value="2">ICSE</option>
+               <option value="3">Other</option>
+            </select><br>
+            <label for="name">PCM Percentage:</label><br>
+            <input type="number" min="0" max="100" id="name" name="PCM_percent"
+               placeholder="Percentage between 0 & 100..."><br>
+            <label for="name">Entrance Mark:</label><br>
+            <input type="number" min="0" max="100" id="name" name="entrance_markp"
+               placeholder="Percentage between 0 & 100..."><br>
+            <label for="name"> Admission Quota :</label><br>
+            <select name="user_Quota">
+               <option disabled selected value> -- select an option -- </option>
+               <option value="0">Merit</option>
+               <option value="1">Mannagement</option>
+               <option value="2">NRI</option>
+            </select><br>
+            <label for="name">Home District:</label><br>
+            <select name="user_Dist">
+               <option disabled selected value> -- select an option -- </option>
+               <option value="0">Thrissur</option>
+               <option value="1">Palakkad</option>
+               <option value="2">Kozhikode</option>
+               <option value="3">Malappuram</option>
+               <option value="4">Alappuzha</option>
+               <option value="5">Kottayam</option>
+               <option value="6">Others</option>
+            </select><br><br>
+            <label for="name" class='s'>Semester Details</label><br><br>
+            <label for="name">Calculas:</label><br>
+            <label class='subl' for="name">Internal Mark(out of 50):</label>
+            <input class='sub' type="number" min="0" max="50" id="name" name="user_s1c1i"
+               placeholder="Mark between 0 & 50...">
+            <label class='subl' for="name">Attendence(out of 100):</label>
+            <input class='sub' type="number" min="0" max="100" id="name" name="user_s1c1a"
+               placeholder="Attendence between 0 & 100..."><br><br>
+            <label for="name">Engineering Physics:</label><br>
+            <label class='subl' for="name">Internal Mark(out of 50):</label>
+            <input class='sub' type="number" min="0" max="50" id="name" name="user_s1c2i"
+               placeholder="Mark between 0 & 50...">
+            <label class='subl' for="name">Attendence(out of 100):</label>
+            <input class='sub' type="number" min="0" max="100" id="name" name="user_s1c2a"
+               placeholder="Attendence between 0 & 100..."><br><br>
+            <label for="name">Engineering Mechanics:</label><br>
+            <label class='subl' for="name">Internal Mark(out of 50):</label>
+            <input class='sub' type="number" min="0" max="50" id="name" name="user_s1c3i"
+               placeholder="Mark between 0 & 50...">
+            <label class='subl' for="name">Attendence(out of 100):</label>
+            <input class='sub' type="number" min="0" max="100" id="name" name="user_s1c3a"
+               placeholder="Attendence between 0 & 100..."><br><br>
+            <label for="name">Introduction to Computing and Problem Solving:</label><br>
+            <label class='subl' for="name">Internal Mark(out of 50):</label>
+            <input class='sub' type="number" min="0" max="50" id="name" name="user_s1c4i"
+               placeholder="Mark between 0 & 50...">
+            <label class='subl' for="name">Attendence(out of 100):</label>
+            <input class='sub' type="number" min="0" max="100" id="name" name="user_s1c4a"
+               placeholder="Attendence between 0 & 100..."><br><br>
+            <label for="name">Basics of Electrical Engineering:</label><br>
+            <label class='subl' for="name">Internal Mark(out of 50):</label>
+            <input class='sub' type="number" min="0" max="50" id="name" name="user_s1c5i"
+               placeholder="Mark between 0 & 50...">
+            <label class='subl' for="name">Attendence(out of 100):</label>
+            <input class='sub' type="number" min="0" max="100" id="name" name="user_s1c5a"
+               placeholder="Attendence between 0 & 100..."><br><br>
+            <label for="name">Introduction to Sustainable Engineering:</label><br>
+            <label class='subl' for="name">Internal Mark(out of 50):</label>
+            <input class='sub' type="number" min="0" max="50" id="name" name="user_s1c6i"
+               placeholder="Mark between 0 & 50...">
+            <label class='subl' for="name">Attendence(out of 100):</label>
+            <input class='sub' type="number" min="0" max="100" id="name" name="user_s1c6a"
+               placeholder="Attendence between 0 & 100..."><br><br>
+
+
+            <input type="submit" value="Submit">
+   </div>
+</body>
+
+</html>
